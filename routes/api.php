@@ -24,3 +24,6 @@ Route::prefix('tasks/{task}')->group(function () {
     Route::put('', [TaskController::class, 'update']);
     Route::delete('', [TaskController::class, 'destroy']);
 });
+
+Route::patch('tasks/reorder', [TaskController::class,   'reorder']);
+Route::patch('columns/reorder', [ColumnController::class, 'reorder']);

@@ -39,4 +39,15 @@ class ColumnController extends Controller
 
         return response()->noContent();
     }
+
+    public function reorder(Request $request)
+    {
+        foreach ($request->columns as $item) {
+            Column::where('id', $item['id'])->update([
+                'order' => $item['order'],
+            ]);
+        }
+
+        return response()->json(['message' => 'Reordered']);
+    }
 }

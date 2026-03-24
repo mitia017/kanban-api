@@ -43,4 +43,16 @@ class TaskController extends Controller
 
         return response()->noContent();
     }
+
+    public function reorder(Request $request)
+    {
+        foreach ($request->tasks as $item) {
+            Task::where('id', $item['id'])->update([
+                'column_id' => $item['column_id'],
+                'order' => $item['order'],
+            ]);
+        }
+
+        return response()->json(['message' => 'Reordered']);
+    }
 }
