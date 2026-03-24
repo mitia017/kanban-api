@@ -1,0 +1,24 @@
+app = "kanban-api"
+primary_region = "cdg"
+
+[build]
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+
+[[vm]]
+  memory = "256mb"
+  cpu_kind = "shared"
+  cpus = 1
+```
+
+**Étape 5 — Vérifier `.env.example`**
+```
+APP_ENV=production
+APP_DEBUG=false
+APP_KEY=
+DB_CONNECTION=sqlite
+DB_DATABASE=/app/database/database.sqlite
