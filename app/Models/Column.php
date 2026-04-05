@@ -8,16 +8,11 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Column extends Model
 {
-    protected $fillable = ['kanban_id', 'title', 'order', 'user_id'];
-
-    public function user(): BelongsTo
-    {
-        return $this->belongsTo(User::class);
-    }
+    protected $fillable = ['kanban_id', 'title', 'order'];
 
     public function kanban(): BelongsTo
     {
-        return $this->belongsTo(Kanban::class);
+        return $this->belongsTo(kanban::class);
     }
 
     public function tasks(): HasMany
